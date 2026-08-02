@@ -5,18 +5,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 LOADING SCREEN
 ========================= */
 
-const loader=document.querySelector(".loading-screen");
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-loader.style.opacity="0";
-loader.style.pointerEvents="none";
-
-},200);
-
-});
 
 
 
