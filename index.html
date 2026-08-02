@@ -1,125 +1,869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Priyesh Yadav | AI Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Priyesh Yadav | AI Engineer Portfolio</title>
+
+<meta name="description" content="Priyesh Yadav - AI Engineer building intelligent AI systems, Generative AI applications, RAG systems, Data Engineering pipelines and LLM solutions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="bg-animation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<div class="loading-screen">
+    <div class="loader"></div>
+</div>
 
-  <header class="navbar">
-    <div class="logo">PY</div>
-    <div class="menu-toggle" id="menu-toggle">☰</div>
-    <nav id="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="scroll-progress"></div>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="tag">🚀 Available for AI & Data Engineering Roles</p>
-      <h1>Hi, I'm <span>Priyesh Yadav</span></h1>
-      <h2 id="typing"></h2>
-      <p class="hero-desc">
-        Passionate about building intelligent AI applications, scalable data pipelines,
-        and cloud-native analytics solutions using Python, SQL, PySpark, Databricks,
-        and Generative AI technologies.
-      </p>
-      <div class="hero-buttons">
-        <a href="Priyes_Yadav_Resume.pdf" class="btn primary" download>⬇ Download Resume</a>
-        <a href="#projects" class="btn secondary">✨ Explore Projects</a>
-      </div>
-    </div>
+<div class="cursor-glow"></div>
 
-    <div class="hero-image">
-      <div class="image-wrapper">
-        <img src="profile.jpg" alt="Priyesh Yadav">
-      </div>
-    </div>
-  </section>
 
-  <section id="about" class="section glass">
-    <h2>About Me</h2>
-    <p>
-      Computer Science graduate with hands-on experience in Python, SQL, PySpark,
-      Databricks, Machine Learning, and Generative AI. I enjoy transforming raw
-      data into intelligent, scalable, and business-ready solutions.
-    </p>
-  </section>
+<header class="navbar">
 
-  <section id="skills" class="section">
-    <h2>Technical Skills</h2>
-    <div class="skill-grid">
-      <div class="skill-card">🐍 Python</div>
-      <div class="skill-card">🗄 SQL</div>
-      <div class="skill-card">⚡ PySpark</div>
-      <div class="skill-card">☁ Databricks</div>
-      <div class="skill-card">🤖 Machine Learning</div>
-      <div class="skill-card">🧠 Generative AI</div>
-      <div class="skill-card">📊 Pandas</div>
-      <div class="skill-card">🔧 Git & GitHub</div>
-    </div>
-  </section>
+<div class="logo">
+    <span>PY</span>
+</div>
 
-  <section id="projects" class="section">
-    <h2>Featured Projects</h2>
-    <div class="project-grid">
-      <div class="project-card glass">
-        <h3>🧠 AI Resume Analyzer</h3>
-        <p>NLP-based ATS resume scoring system with intelligent feedback.</p>
-      </div>
-      <div class="project-card glass">
-        <h3>💬 RAG Chatbot</h3>
-        <p>Retrieval-Augmented Generation chatbot using vector search concepts.</p>
-      </div>
-      <div class="project-card glass">
-        <h3>📈 Sales Data Pipeline</h3>
-        <p>End-to-end ETL pipeline built with PySpark and Databricks for analytics workloads.</p>
-      </div>
-    </div>
-  </section>
 
-  <section id="contact" class="section glass">
-    <h2>Let's Connect</h2>
-    <div class="contact-grid">
-      <a href="mailto:your-email@gmail.com" class="contact-card">📧 Email</a>
-      <a href="https://linkedin.com" target="_blank" class="contact-card">💼 LinkedIn</a>
-      <a href="https://github.com/YadavPriyesh" target="_blank" class="contact-card">💻 GitHub</a>
-    </div>
-  </section>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#certifications">Certifications</a>
+<a href="#resume">Resume</a>
+<a href="#contact">Contact</a>
+</nav>
 
-  <section class="section">
-    <div class="chatbot-open glass">
-      <div class="chat-header">🤖 Priyesh AI Assistant</div>
-      <div id="chat-body" class="chat-body">
-        <div class="bot-message">
-          Hi 👋 Ask me about my skills, projects, certifications, resume, or contact information.
-        </div>
-      </div>
-      <div class="chat-input">
-        <input type="text" id="user-input" placeholder="Ask me something...">
-        <button id="send-btn">Send</button>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <p>© 2026 Priyesh Yadav • AI Engineer Portfolio</p>
-  </footer>
+<div class="nav-actions">
+<button id="themeToggle">◐</button>
+<button class="menu-btn">☰</button>
+</div>
 
-  <script src="script.js"></script>
+
+</header>
+
+
+
+<main>
+
+
+<section id="home" class="hero">
+
+
+<div class="hero-grid"></div>
+
+
+<div class="floating-circle circle-one"></div>
+<div class="floating-circle circle-two"></div>
+<div class="floating-circle circle-three"></div>
+
+
+
+<div class="hero-content reveal">
+
+
+<p class="tag">
+AI ENGINEER • GENERATIVE AI • DATA ENGINEERING
+</p>
+
+
+<h1>
+Building Intelligent AI Systems
+<br>
+That Solve Real Problems
+</h1>
+
+
+<p class="hero-description">
+
+AI Engineer specializing in LLM Applications, RAG Systems,
+Databricks, Machine Learning and scalable AI products.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn primary">
+Explore Projects
+</a>
+
+
+<a href="resume.pdf" class="btn secondary">
+Download Resume
+</a>
+
+
+<a href="#contact" class="btn outline">
+Hire Me
+</a>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section id="about" class="section">
+
+
+<div class="section-title reveal">
+
+<p>ABOUT</p>
+
+<h2>
+Engineering Intelligence For The Future
+</h2>
+
+</div>
+
+
+
+
+<div class="about-container">
+
+
+<div class="profile-card reveal">
+
+<div class="profile-image">
+<img src="https://via.placeholder.com/400" alt="AI Engineer">
+</div>
+
+
+<div class="profile-glow"></div>
+
+</div>
+
+
+
+
+<div class="about-content reveal">
+
+
+<p>
+
+I am an AI Engineer focused on building production-ready
+Artificial Intelligence systems using Large Language Models,
+Machine Learning, Data Engineering and Cloud technologies.
+
+</p>
+
+
+<p>
+
+My goal is to create AI solutions that combine research,
+engineering excellence and real-world impact.
+
+</p>
+
+
+
+
+<div class="stats">
+
+
+<div>
+<h3 class="counter" data-target="10">0</h3>
+<p>AI Projects</p>
+</div>
+
+
+<div>
+<h3 class="counter" data-target="6">0</h3>
+<p>Certifications</p>
+</div>
+
+
+<div>
+<h3 class="counter" data-target="25">0</h3>
+<p>Technologies</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="skills" class="section">
+
+
+<div class="section-title reveal">
+
+<p>SKILLS</p>
+
+<h2>
+Technical Arsenal
+</h2>
+
+</div>
+
+
+
+<div class="skills-grid">
+
+
+
+<div class="skill-card reveal">
+<h3>Languages</h3>
+<div class="badges">
+<span>Python</span>
+<span>Java</span>
+<span>SQL</span>
+<span>JavaScript</span>
+</div>
+</div>
+
+
+
+<div class="skill-card reveal">
+<h3>AI Libraries</h3>
+<div class="badges">
+<span>LangChain</span>
+<span>LangGraph</span>
+<span>OpenAI</span>
+<span>Gemini</span>
+<span>TensorFlow</span>
+<span>PyTorch</span>
+</div>
+</div>
+
+
+
+<div class="skill-card reveal">
+<h3>Frameworks</h3>
+<div class="badges">
+<span>FastAPI</span>
+<span>Flask</span>
+<span>Node.js</span>
+</div>
+</div>
+
+
+
+<div class="skill-card reveal">
+<h3>Cloud & Data</h3>
+
+<div class="badges">
+
+<span>Azure</span>
+<span>AWS</span>
+<span>Databricks</span>
+
+</div>
+
+</div>
+
+
+
+<div class="skill-card reveal">
+
+<h3>Databases</h3>
+
+<div class="badges">
+
+<span>MySQL</span>
+<span>MongoDB</span>
+<span>PostgreSQL</span>
+<span>FAISS</span>
+<span>Pinecone</span>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="projects" class="section">
+
+
+<div class="section-title reveal">
+
+<p>PROJECTS</p>
+
+<h2>
+AI Products & Engineering Systems
+</h2>
+
+</div>
+
+
+
+
+<div class="projects-grid">
+
+
+
+<div class="project-card reveal">
+
+<div class="project-image">
+AI
+</div>
+
+<h3>
+Enterprise RAG Assistant
+</h3>
+
+
+<p>
+Intelligent document question answering system using LLMs,
+vector databases and retrieval pipelines.
+</p>
+
+
+<div class="badges">
+<span>LangChain</span>
+<span>FAISS</span>
+<span>OpenAI</span>
+</div>
+
+
+<div class="project-links">
+
+<a href="#">GitHub</a>
+<a href="#">Live Demo</a>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="project-card reveal">
+
+
+<div class="project-image">
+AI
+</div>
+
+
+<h3>
+AI Resume Analyzer
+</h3>
+
+
+<p>
+AI-powered recruitment assistant that evaluates resumes,
+skills and job matching.
+</p>
+
+
+<div class="badges">
+<span>Python</span>
+<span>NLP</span>
+<span>LLM</span>
+</div>
+
+
+<div class="project-links">
+<a href="#">GitHub</a>
+<a href="#">Live Demo</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="project-card reveal">
+
+
+<div class="project-image">
+AI
+</div>
+
+
+<h3>
+Customer Support AI Agent
+</h3>
+
+
+<p>
+Autonomous conversational AI agent with memory,
+reasoning and tool integration.
+</p>
+
+
+<div class="badges">
+
+<span>Agents</span>
+<span>LangGraph</span>
+<span>FastAPI</span>
+
+</div>
+
+
+<div class="project-links">
+<a href="#">GitHub</a>
+<a href="#">Live Demo</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="project-card reveal">
+
+
+<div class="project-image">
+DATA
+</div>
+
+
+<h3>
+Data Engineering Pipeline
+</h3>
+
+
+<p>
+Scalable ETL pipeline processing large datasets using
+cloud technologies.
+</p>
+
+
+<div class="badges">
+<span>PySpark</span>
+<span>Databricks</span>
+<span>SQL</span>
+</div>
+
+
+<div class="project-links">
+<a href="#">GitHub</a>
+<a href="#">Live Demo</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="project-card reveal">
+
+
+<div class="project-image">
+GENAI
+</div>
+
+
+<h3>
+GenAI Chat Application
+</h3>
+
+
+<p>
+Modern AI assistant powered by LLM APIs and intelligent
+conversation workflows.
+</p>
+
+
+<div class="badges">
+
+<span>LLM</span>
+<span>API</span>
+<span>Cloud</span>
+
+</div>
+
+
+<div class="project-links">
+
+<a href="#">GitHub</a>
+<a href="#">Live Demo</a>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="experience" class="section">
+
+
+<div class="section-title reveal">
+
+<p>EXPERIENCE</p>
+
+<h2>
+Professional Journey
+</h2>
+
+</div>
+
+
+
+<div class="timeline">
+
+
+<div class="timeline-item reveal">
+
+<h3>Software Engineer</h3>
+<p>
+Building scalable software solutions and solving complex engineering problems.
+</p>
+
+</div>
+
+
+
+<div class="timeline-item reveal">
+
+<h3>AI Engineer</h3>
+
+<p>
+Developing Generative AI applications,
+LLM workflows and intelligent automation systems.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item reveal">
+
+<h3>Data Engineer</h3>
+
+<p>
+Working with data pipelines, SQL,
+PySpark and Databricks ecosystems.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item reveal">
+
+<h3>Continuous Learning</h3>
+
+<p>
+Researching AI agents, RAG architectures
+and next-generation AI systems.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="certifications" class="section">
+
+
+<div class="section-title reveal">
+
+<p>CERTIFICATIONS</p>
+
+<h2>
+AI Certification Vault
+</h2>
+
+</div>
+
+
+
+<div class="cert-grid">
+
+
+<div class="cert-card reveal">
+<h3>Databricks</h3>
+<p>Generative AI Engineer Associate</p>
+</div>
+
+
+<div class="cert-card reveal">
+<h3>Databricks</h3>
+<p>Machine Learning Engineer Associate</p>
+</div>
+
+
+<div class="cert-card reveal">
+<h3>Python</h3>
+<p>Certified Python Programmer</p>
+</div>
+
+
+<div class="cert-card reveal">
+<h3>PySpark</h3>
+<p>Data Engineering Certification</p>
+</div>
+
+
+<div class="cert-card reveal">
+<h3>SQL</h3>
+<p>Database Engineering Skills</p>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="resume" class="section">
+
+
+<div class="resume-card reveal">
+
+
+<h2>
+Ready To Build The Future With AI?
+</h2>
+
+
+<p>
+Download my complete resume and explore my engineering journey.
+</p>
+
+
+<a href="resume.pdf" class="btn primary">
+Download Resume
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="contact" class="section">
+
+
+<div class="section-title reveal">
+
+<p>CONTACT</p>
+
+<h2>
+Let's Build Something Intelligent
+</h2>
+
+</div>
+
+
+
+<div class="contact-container">
+
+
+
+<form class="contact-form reveal">
+
+<input placeholder="Name">
+
+<input placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button class="btn primary">
+Send Message
+</button>
+
+
+</form>
+
+
+
+
+<div class="contact-info reveal">
+
+<p>LinkedIn</p>
+<p>GitHub</p>
+<p>Email</p>
+<p>Location: India</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+<footer>
+
+
+<p>
+© 2026 Priyesh Yadav. Built with AI & Engineering Excellence.
+</p>
+
+
+<button id="topBtn">
+↑
+</button>
+
+
+</footer>
+
+
+
+
+
+
+
+<div class="chatbot">
+
+
+<button class="chat-toggle">
+AI
+</button>
+
+
+
+<div class="chat-window">
+
+
+<div class="chat-header">
+
+AI Assistant
+
+<button class="close-chat">
+×
+</button>
+
+</div>
+
+
+
+<div class="chat-body">
+
+</div>
+
+
+
+<div class="suggestions">
+
+<button>Who are you?</button>
+<button>Projects</button>
+<button>Skills</button>
+<button>Hire</button>
+
+</div>
+
+
+
+<div class="chat-input">
+
+<input placeholder="Ask AI...">
+
+<button>
+Send
+</button>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
