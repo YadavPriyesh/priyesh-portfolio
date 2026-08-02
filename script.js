@@ -1,126 +1,768 @@
-window.onload = function () {
+document.addEventListener("DOMContentLoaded",()=>{
 
-  // MOBILE MENU
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('nav-links');
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+/* =========================
+LOADING SCREEN
+========================= */
 
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-      });
-    });
-  }
+const loader=document.querySelector(".loading-screen");
 
-  // TYPING EFFECT
-  const roles = [
-    'AI Engineer',
-    'Data Engineer',
-    'Python Developer',
-    'Generative AI Enthusiast'
-  ];
+window.addEventListener("load",()=>{
 
-  const typing = document.getElementById('typing');
+setTimeout(()=>{
 
-  if (typing) {
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+loader.style.opacity="0";
+loader.style.pointerEvents="none";
 
-    function typeEffect() {
-      const current = roles[roleIndex];
+},800);
 
-      if (!deleting) {
-        typing.textContent = current.substring(0, charIndex++);
+});
 
-        if (charIndex > current.length) {
-          deleting = true;
-          setTimeout(typeEffect, 1500);
-          return;
-        }
-      } else {
-        typing.textContent = current.substring(0, charIndex--);
 
-        if (charIndex < 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
-      }
 
-      setTimeout(typeEffect, deleting ? 50 : 100);
-    }
 
-    typeEffect();
-  }
 
-  // SIMPLE OPEN CHATBOT
-  const sendBtn = document.getElementById('send-btn');
-  const userInput = document.getElementById('user-input');
-  const chatBody = document.getElementById('chat-body');
+/* =========================
+SCROLL PROGRESS
+========================= */
 
-  function addMessage(message, type) {
-    const div = document.createElement('div');
-    div.className = type === 'user' ? 'user-message' : 'bot-message';
-    div.innerText = message;
-    chatBody.appendChild(div);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
 
-  function getBotResponse(text) {
-    text = text.toLowerCase();
+const progress=document.querySelector(".scroll-progress");
 
-    if (text.includes('hi') || text.includes('hello')) {
-      return 'Hello 👋 Welcome to Priyesh Yadav\\'s portfolio!';
-    }
 
-    if (text.includes('skill')) {
-      return 'My skills include Python, SQL, PySpark, Databricks, Machine Learning, and Generative AI.';
-    }
+window.addEventListener("scroll",()=>{
 
-    if (text.includes('project')) {
-      return 'Featured projects: AI Resume Analyzer, RAG Chatbot, and Sales Data Pipeline.';
-    }
 
-    if (text.includes('certificate') || text.includes('certification')) {
-      return 'I have Databricks and Infosys certifications related to Data Engineering, Machine Learning, and Generative AI.';
-    }
+let height=
+document.documentElement.scrollHeight-
+document.documentElement.clientHeight;
 
-    if (text.includes('resume')) {
-      return 'You can download my resume using the Download Resume button at the top of the portfolio.';
-    }
 
-    if (text.includes('contact') || text.includes('email') || text.includes('linkedin') || text.includes('github')) {
-      return 'Please use the Contact section or connect with me through LinkedIn and GitHub.';
-    }
+let scrolled=
+(window.scrollY/height)*100;
 
-    return 'I can answer simple questions about my skills, projects, certifications, resume, and contact information.';
-  }
 
-  function sendMessage() {
-    const text = userInput.value.trim();
-    if (text === '') return;
+progress.style.width=scrolled+"%";
 
-    addMessage(text, 'user');
-    userInput.value = '';
 
-    setTimeout(() => {
-      addMessage(getBotResponse(text), 'bot');
-    }, 400);
-  }
+});
 
-  if (sendBtn) {
-    sendBtn.addEventListener('click', sendMessage);
-  }
 
-  if (userInput) {
-    userInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    });
-  }
-};
+
+
+
+
+
+/* =========================
+NAVBAR BLUR
+========================= */
+
+
+const navbar=document.querySelector(".navbar");
+
+
+window.addEventListener("scroll",()=>{
+
+
+if(window.scrollY>50){
+
+navbar.classList.add("scrolled");
+
+}
+
+else{
+
+navbar.classList.remove("scrolled");
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+CURSOR FOLLOWER
+========================= */
+
+
+const cursor=document.querySelector(".cursor-glow");
+
+
+document.addEventListener("mousemove",(e)=>{
+
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+
+});
+
+
+
+
+
+
+
+/* =========================
+SCROLL REVEAL
+========================= */
+
+
+const reveals=document.querySelectorAll(".reveal");
+
+
+const observer=new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+
+});
+
+
+},{threshold:.15});
+
+
+
+reveals.forEach(item=>{
+
+observer.observe(item);
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+COUNTER ANIMATION
+========================= */
+
+
+const counters=document.querySelectorAll(".counter");
+
+
+let started=false;
+
+
+function startCounters(){
+
+
+if(started)return;
+
+
+counters.forEach(counter=>{
+
+
+let target=
+Number(counter.dataset.target);
+
+
+let count=0;
+
+
+let interval=setInterval(()=>{
+
+
+count++;
+
+
+counter.innerText=count;
+
+
+if(count>=target){
+
+clearInterval(interval);
+
+}
+
+
+},80);
+
+
+
+});
+
+
+started=true;
+
+
+}
+
+
+
+const statsObserver=new IntersectionObserver(entries=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+startCounters();
+
+}
+
+
+});
+
+
+});
+
+
+
+if(counters.length){
+
+statsObserver.observe(counters[0].parentElement.parentElement);
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================
+THEME TOGGLE
+========================= */
+
+
+const themeBtn=document.getElementById("themeToggle");
+
+
+themeBtn.addEventListener("click",()=>{
+
+
+document.body.classList.toggle("light");
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+BACK TO TOP
+========================= */
+
+
+const topBtn=document.getElementById("topBtn");
+
+
+topBtn.addEventListener("click",()=>{
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+MOBILE MENU
+========================= */
+
+
+const menuBtn=document.querySelector(".menu-btn");
+
+const nav=document.querySelector("nav");
+
+
+
+menuBtn.addEventListener("click",()=>{
+
+
+if(nav.style.display==="flex"){
+
+nav.style.display="none";
+
+}
+
+else{
+
+nav.style.display="flex";
+
+nav.style.flexDirection="column";
+
+nav.style.position="absolute";
+
+nav.style.top="70px";
+
+nav.style.left="20px";
+
+nav.style.right="20px";
+
+nav.style.padding="25px";
+
+nav.style.background="rgba(5,8,22,.95)";
+
+nav.style.borderRadius="20px";
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* =========================
+ACTIVE NAV LINK
+========================= */
+
+
+const sections=document.querySelectorAll("section");
+
+const links=document.querySelectorAll("nav a");
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+let current="";
+
+
+sections.forEach(section=>{
+
+
+let top=section.offsetTop-150;
+
+
+if(window.scrollY>=top){
+
+current=section.id;
+
+}
+
+
+});
+
+
+
+links.forEach(link=>{
+
+
+link.style.color="";
+
+
+if(link.getAttribute("href")==="#"+current){
+
+link.style.color="#00E5FF";
+
+}
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+CHATBOT
+========================= */
+
+
+const chatToggle=document.querySelector(".chat-toggle");
+
+const chatWindow=document.querySelector(".chat-window");
+
+const closeChat=document.querySelector(".close-chat");
+
+const chatBody=document.querySelector(".chat-body");
+
+const chatInput=document.querySelector(".chat-input input");
+
+const sendBtn=document.querySelector(".chat-input button");
+
+const suggestions=document.querySelectorAll(".suggestions button");
+
+
+
+
+
+
+chatToggle.addEventListener("click",()=>{
+
+
+chatWindow.style.display="block";
+
+
+});
+
+
+closeChat.addEventListener("click",()=>{
+
+
+chatWindow.style.display="none";
+
+
+});
+
+
+
+
+
+
+
+function addMessage(text,type){
+
+
+let div=document.createElement("div");
+
+
+div.className=
+"message "+type;
+
+
+div.innerHTML=text;
+
+
+chatBody.appendChild(div);
+
+
+chatBody.scrollTop=
+chatBody.scrollHeight;
+
+
+}
+
+
+
+
+
+
+function typing(){
+
+
+let div=document.createElement("div");
+
+
+div.className="message bot";
+
+
+div.innerHTML=
+"Thinking<span class='dots'>...</span>";
+
+
+
+chatBody.appendChild(div);
+
+
+
+return div;
+
+
+}
+
+
+
+
+
+function botReply(question){
+
+
+
+let q=
+question.toLowerCase();
+
+
+
+let answer="";
+
+
+
+if(
+q.includes("who")||
+q.includes("yourself")
+){
+
+answer=
+"I am Priyesh Yadav, an AI Engineer building intelligent systems using LLMs, Generative AI, Databricks, Machine Learning and Data Engineering.";
+
+}
+
+
+
+else if(q.includes("project")){
+
+
+answer=
+"My projects include Enterprise RAG Assistant, AI Resume Analyzer, Customer Support AI Agent, Data Engineering Pipeline and GenAI Applications.";
+
+}
+
+
+
+else if(q.includes("skill")){
+
+
+answer=
+"My core skills include Python, SQL, LangChain, LangGraph, OpenAI, Gemini, PyTorch, TensorFlow, FastAPI, Databricks, AWS and Azure.";
+
+}
+
+
+
+else if(q.includes("cert")){
+
+
+answer=
+"I have certifications in Databricks Generative AI Engineer, Databricks Machine Learning, Python, PySpark and SQL.";
+
+}
+
+
+
+else if(q.includes("experience")){
+
+
+answer=
+"I have experience in software engineering, AI engineering and data engineering focused on building scalable intelligent solutions.";
+
+}
+
+
+
+else if(q.includes("resume")){
+
+
+answer=
+"You can download my resume from the Resume section.";
+
+}
+
+
+
+else if(q.includes("github")){
+
+
+answer=
+"My GitHub contains AI projects, data engineering pipelines and machine learning implementations.";
+
+}
+
+
+
+else if(q.includes("linkedin")){
+
+
+answer=
+"You can connect with me on LinkedIn for AI engineering opportunities.";
+
+}
+
+
+
+else if(q.includes("hire")){
+
+
+answer=
+"I am open to opportunities where I can build impactful AI products and intelligent automation systems.";
+
+}
+
+
+
+else{
+
+
+answer=
+"I can help you learn about my projects, skills, certifications, experience and hiring information.";
+
+}
+
+
+
+let typingMessage=typing();
+
+
+
+setTimeout(()=>{
+
+
+typingMessage.remove();
+
+
+addMessage(answer,"bot");
+
+
+},1200);
+
+
+
+}
+
+
+
+
+
+
+
+function sendMessage(){
+
+
+let text=chatInput.value.trim();
+
+
+if(!text)return;
+
+
+
+addMessage(text,"user");
+
+
+chatInput.value="";
+
+
+botReply(text);
+
+
+
+}
+
+
+
+
+
+
+
+sendBtn.addEventListener("click",sendMessage);
+
+
+
+chatInput.addEventListener("keypress",(e)=>{
+
+
+if(e.key==="Enter"){
+
+sendMessage();
+
+}
+
+
+});
+
+
+
+
+suggestions.forEach(btn=>{
+
+
+btn.addEventListener("click",()=>{
+
+
+addMessage(btn.innerText,"user");
+
+
+botReply(btn.innerText);
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+BUTTON RIPPLE EFFECT
+========================= */
+
+
+document.querySelectorAll(".btn").forEach(button=>{
+
+
+button.addEventListener("click",function(e){
+
+
+let ripple=document.createElement("span");
+
+
+ripple.className="ripple";
+
+
+this.appendChild(ripple);
+
+
+
+setTimeout(()=>{
+
+
+ripple.remove();
+
+
+},600);
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+});
