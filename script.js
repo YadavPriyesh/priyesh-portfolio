@@ -1,4 +1,3 @@
-```javascript
 // =========================
 // LIGHTWEIGHT PREMIUM PORTFOLIO JS
 // Optimized for GitHub Pages
@@ -360,4 +359,3 @@ topBtn.style.pointerEvents = 'none';
 
 // Lightweight startup log
 console.log('🚀 Premium AI Portfolio Loaded Successfully');
-```
