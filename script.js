@@ -183,10 +183,11 @@ const suggestionButtons = document.querySelectorAll('.chat-suggestions button');
 
 // Open / Close Chat
 chatToggle.addEventListener('click', () => {
-  chatWindow.style.display =
-    chatWindow.style.display === 'block'
-      ? 'none'
-      : 'block';
+  if (chatWindow.style.display === 'flex') {
+  chatWindow.style.display = 'none';
+} else {
+  chatWindow.style.display = 'flex';
+}
 });
 
 closeChat.addEventListener('click', () => {
