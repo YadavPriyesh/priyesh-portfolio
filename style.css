@@ -671,6 +671,8 @@ body.light .navbar{
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.45);
   display:none;
+
+  /* IMPORTANT */
   flex-direction:column;
 }
 
@@ -704,12 +706,36 @@ body.light .chat-window{
 
 .chat-body{
   flex:1;
+  height:100%;
+  min-height:260px;
   overflow-y:auto;
   overflow-x:hidden;
   padding:16px;
   display:flex;
   flex-direction:column;
   gap:12px;
+
+  /* smooth scrolling */
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* visible scrollbar */
+.chat-body::-webkit-scrollbar{
+  width:6px;
+}
+
+.chat-body::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.18);
+  border-radius:10px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover{
+  background:rgba(255,255,255,.3);
 }
 
 .message{
