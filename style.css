@@ -728,27 +728,41 @@ body.light .navbar{
   align-self:flex-end;
 }
 
+/* FIX CHAT SUGGESTION BUTTONS */
 .chat-suggestions{
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
   gap:8px;
   padding:0 16px 12px;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-
-.chat-suggestions::-webkit-scrollbar{
-  display:none;
+  overflow:hidden; /* REMOVE HORIZONTAL SCROLL */
 }
 
 .chat-suggestions button{
-  flex-shrink:0;
-  padding:8px 14px;
-  border-radius:999px;
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.08);
   background:#111827;
   color:var(--text);
   cursor:pointer;
   font-size:.82rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@media(max-width:480px){
+  .chat-suggestions{
+    grid-template-columns:1fr;
+  }
+}
+
+.chat-window{
+  overflow:hidden;
+}
+
+.chat-body{
+  overflow-x:hidden;
 }
 
 .chat-input{
